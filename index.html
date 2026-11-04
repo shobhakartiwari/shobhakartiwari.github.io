@@ -1,282 +1,702 @@
-Shobhakar Tiwari
-Experience
-Open source
-Values
-Community
-Writing
-Apps
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shobhakar Tiwari</title>
+<meta name="description" content="Shobhakar Tiwari, Software Engineer for Apple platforms.">
+<style>
+/* Layout: one 1180px column; floating pill header; centered hero; experience as ruled rows; repo cards with preview pane; 2x2 ruled values grid. Single deliberate dark look. */
+:root {
+  color-scheme: dark;
+  --bg: #070a12;
+  --fg: #f7f8fc;
+  --muted: #aab1c4;
+  --dim: #7d859a;
+  --line: #2b3448;
+  --panel: #090c13;
+  --pill: #161e2f;
+  --accent: #0a84ff;
+  --accent-soft: rgba(10, 132, 255, 0.12);
+  --linkedin: #0a66c2;
+  --x: #000000;
+  --x-line: #536471;
+  --gh: #24292f;
+  --gh-line: #57606a;
+  --swift: #f05138;
+  --code: #d4e8ff;
+  --syn-key: #ff7ab2;
+  --syn-type: #6bdfff;
+  --syn-str: #ff8170;
+  --syn-fn: #b281eb;
+  --syn-com: #7f8c98;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font); font-size: 16px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 999px; }
 
+.wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
 
+/* Floating header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 12px 0; }
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  background: rgba(17, 23, 37, 0.78);
+  -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3);
+  border: 1px solid var(--line); border-radius: 999px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+  padding: 10px 12px 10px 24px;
+}
+.brand { font-weight: 650; letter-spacing: -0.02em; white-space: nowrap; }
+.bar-right { display: flex; align-items: center; gap: 24px; }
+.nav { display: flex; gap: 24px; }
+.nav a { font-size: 14px; color: var(--muted); transition: color .15s ease; }
+.nav a:hover { color: var(--fg); }
+.icons { display: flex; gap: 8px; }
+.icon {
+  width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid; color: #fff; transition: transform .15s ease;
+}
+.icon:hover { transform: translateY(-1px); }
+.icon svg { width: 14px; height: 14px; fill: currentColor; }
+.li { background: var(--linkedin); border-color: var(--linkedin); }
+.xx { background: var(--x); border-color: var(--x-line); }
+.gh { background: var(--gh); border-color: var(--gh-line); }
+.so { background: #f48024; border-color: #f48024; }
+.md { background: #000000; border-color: #536471; }
 
+/* Hero */
+.hero { text-align: center; padding-block: 110px 150px; }
+.avatar {
+  width: 112px; height: 112px; border-radius: 50%; object-fit: cover; display: block;
+  margin: 0 auto 32px; border: 1px solid var(--line);
+  box-shadow: 0 0 0 6px rgba(17, 23, 37, 0.78), 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+.hero h1 {
+  font-weight: 400; font-size: clamp(44px, 7vw, 72px); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 0; text-wrap: balance;
+}
+.hero h1 span { display: block; }
+.hero p { margin: 26px auto 0; font-size: clamp(17px, 2vw, 20.5px); line-height: 1.5; color: var(--muted); max-width: 40ch; }
+.cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  height: 40px; padding: 0 24px; border-radius: 999px; border: 1px solid;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 650; color: #fff; transition: transform .15s ease, filter .15s ease;
+}
+.btn:hover { transform: translateY(-1px); filter: brightness(1.12); }
+.btn svg { width: 15px; height: 15px; fill: currentColor; }
+.cta-group { display: inline-grid; grid-template-columns: auto auto; gap: 12px; }
+.cta-group .btn { justify-content: center; }
+.btn.tm {
+  grid-column: 1 / -1; height: 50px; font-size: 16px; font-weight: 750; letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #ff8a3d, #ff4f5e); border-color: transparent;
+  box-shadow: 0 10px 30px rgba(255, 90, 80, 0.28);
+}
+.btn.tm svg { width: 17px; height: 17px; }
 
+/* Section shell */
+.section { padding-block: 110px 40px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin: 0 0 18px; }
+.section h2 {
+  font-weight: 400; font-size: clamp(34px, 4.6vw, 51px); line-height: 1; letter-spacing: -0.052em;
+  margin: 0; max-width: 15ch; text-wrap: balance;
+}
+.section-intro { margin: 22px 0 0; color: var(--muted); font-size: 17px; line-height: 1.6; max-width: 54ch; }
+.split { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.metric { text-align: right; display: grid; gap: 4px; }
+.metric strong { font-weight: 400; font-size: clamp(30px, 3.6vw, 40px); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.metric span { color: var(--muted); font-size: 14px; }
 
-￼
-Software Engineer
-Apple Platforms
-Building native iOS apps for iPhone and iPad, with on-device AI and a growing AI skillset
+/* Experience */
+.rows { margin-top: 48px; border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: minmax(220px, 246px) minmax(0, 1fr) auto;
+  gap: 24px; padding-block: 34px; border-bottom: 1px solid var(--line); align-items: start;
+}
+.who { display: flex; gap: 16px; align-items: flex-start; }
+.logo {
+  width: 44px; height: 44px; border-radius: 11px; flex: none; display: grid; place-items: center;
+  font-weight: 700; font-size: 16px; letter-spacing: -0.02em; color: #fff;
+}
+.who h3 { margin: 0; font-size: 17px; font-weight: 650; letter-spacing: -0.02em; line-height: 1.3; }
+.who small { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; }
+.row p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.72; max-width: 52ch; min-width: 0; }
+.when { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; padding-top: 3px; text-align: right; }
+.when .loc { display: block; margin-top: 8px; font-family: var(--font); font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--dim); }
+.who small .client { color: var(--dim); }
 
-Connect
+/* Open source cards */
+.grid { margin-top: 48px; display: grid; gap: 16px; }
+.card {
+  display: grid; grid-template-columns: minmax(0, 258px) minmax(0, 1fr); gap: 26px;
+  border: 1px solid var(--line); border-radius: 25px; padding: 24px 24px 24px 24px;
+  background: linear-gradient(180deg, rgba(22, 30, 47, 0.55), rgba(9, 12, 19, 0.2));
+}
+.preview {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 18px;
+  min-height: 216px; overflow: hidden; min-width: 0; position: relative;
+}
+.preview pre { margin: 0; padding: 22px; font-family: var(--mono); font-size: 12.5px; line-height: 1.7; color: var(--code); white-space: pre-wrap; word-break: break-word; }
+.k { color: var(--syn-key); } .t { color: var(--syn-type); } .s { color: var(--syn-str); } .f { color: var(--syn-fn); } .c { color: var(--syn-com); font-style: italic; }
+.body { display: flex; flex-direction: column; min-width: 0; padding-top: 6px; }
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.kind { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.badge { font-family: var(--mono); font-size: 12.5px; background: var(--pill); border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px; white-space: nowrap; }
+.card h3 { margin: 22px 0 0; font-size: 24px; font-weight: 400; letter-spacing: -0.035em; line-height: 1.1; overflow-wrap: anywhere; }
+.card p { margin: 10px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; max-width: 62ch; }
+.meta { margin-top: auto; padding-top: 30px; display: flex; gap: 18px; font-family: var(--mono); font-size: 12.5px; color: var(--muted); padding-bottom: 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.meta i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--swift); margin-right: 6px; vertical-align: 0; }
+.foot { padding-top: 14px; font-size: 13px; color: var(--muted); }
+.foot a { color: var(--fg); }
+.foot a:hover { color: var(--accent); }
 
-GitHub
+/* Writing */
+.posts { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.post {
+  display: flex; flex-direction: column; gap: 14px; min-height: 196px;
+  border: 1px solid var(--line); border-radius: 20px; padding: 24px;
+  background: linear-gradient(180deg, rgba(22, 30, 47, 0.55), rgba(9, 12, 19, 0.2));
+  transition: border-color .15s ease, transform .15s ease;
+}
+.post:hover { border-color: var(--accent); transform: translateY(-2px); }
+.post .kind { font-size: 11.5px; }
+.post h3 { margin: 0; font-size: 21px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.2; text-wrap: balance; }
+.post-meta { margin-top: auto; display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 14px; border-top: 1px solid var(--line); }
+.more { margin-top: 24px; font-size: 14px; color: var(--muted); }
+.more a { color: var(--fg); }
+.more a:hover { color: var(--accent); }
+@media (max-width: 900px) { .posts { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .posts { grid-template-columns: 1fr; } }
 
-Connect for iOS Mock Interview
-PROFESSIONAL EXPERIENCE
-Product ownership backed by engineering depth.
-V
-Virtusa Corp.
-Senior Lead Software Engineer
-Architected real-time bill pay for a major US banking app, supporting full, partial, and overpayments and lifting payment completion by 25%. Built Zelle send and receive flows, extended Zelle to brokerage accounts, and migrated the app from UIKit to SwiftUI incrementally, keeping the same App Store listing, users, and ratings.
-FEB '23 – PRESENTChicago, USA
-B
-Birlasoft Inc.
-Technical Lead · United Airlines
-Built a peer-to-peer app that lets United flight attendants share data between nearby devices over Wi-Fi Direct and Bluetooth, with Core Data syncing, conflict resolution, and AES encryption. Trimmed the app binary through dead-code removal, driving a 20% increase in installs on low-end devices.
-MAY '22 – FEB '23Chicago, USA
-B
-Birlasoft Limited
-Technical Specialist · United Airlines
-Led the Economy Sales module in United's ISA MealOrder app, including a seat layout that made seat selection 20% faster for flight attendants. Architected the Buy-on-Board product catalog, lifting onboard sales by 15%, and led teams across seven enterprise iOS projects.
-MAR '16 – MAY '22Noida, India
-F
-Fliplearn Education
-Software Engineer
-Built the app's core screens in Objective-C and UIKit, and integrated Paytm so parents could pay school fees in the app, raising fee payment completion by 15%. Added offline content with Core Data and push notifications.
-DEC '15 – MAR '16Noida, India
-S
-Smartclass Education
-Software Engineer
-Designed and launched a new iOS app in Swift, UIKit, and Core Data, and refactored legacy Objective-C code into reusable, faster Swift components.
-AUG '15 – NOV '15Noida, India
-O
-Outworx Solutions
-Software Engineer
-Started my career building native iPhone apps in Objective-C and UIKit, with responsive Auto Layout screens, and handled certificates, provisioning, and App Store releases.
-MAY '14 – AUG '15Noida, India
-OPEN SOURCE
-Reusable SwiftUI infrastructure, built in public.
-★ 436
-GitHub stars across public projects
-import SwiftUI
+/* Apps */
+.apps {
+  --card: min(360px, 80vw);
+  margin-top: 40px; display: flex; gap: 22px; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  padding-block: 28px 36px; padding-inline: max(0px, calc(50% - var(--card) / 2));
+  perspective: 1500px; perspective-origin: 50% 40%;
+}
+.apps::-webkit-scrollbar { display: none; }
+.apps:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 24px; }
+.apps .app {
+  flex: 0 0 var(--card); scroll-snap-align: center; scroll-snap-stop: always;
+  background: linear-gradient(180deg, #121a2b, #0b1019);
+  will-change: transform, opacity; backface-visibility: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+.apps .app.is-active {
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55), 0 0 36px rgba(255, 255, 255, 0.14), 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+.flip-nav { display: flex; align-items: center; justify-content: center; gap: 18px; }
+.flip-btn {
+  width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); background: var(--pill);
+  color: var(--fg); font-size: 18px; cursor: pointer; display: grid; place-items: center; transition: border-color .15s ease, opacity .15s ease;
+}
+.flip-btn:hover { border-color: var(--accent); }
+.flip-btn:disabled { opacity: .35; cursor: default; }
+.flip-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.dots { display: flex; gap: 8px; }
+.dots button { width: 8px; height: 8px; padding: 0; border-radius: 999px; border: 0; background: var(--line); cursor: pointer; transition: width .25s ease, background .25s ease; }
+.dots button[aria-current="true"] { width: 24px; background: var(--accent); }
+.flip-count { font-family: var(--mono); font-size: 12px; color: var(--muted); min-width: 52px; text-align: center; font-variant-numeric: tabular-nums; }
+.app {
+  display: flex; flex-direction: column; gap: 16px;
+  border: 1px solid var(--line); border-radius: 22px; padding: 24px;
+  background: linear-gradient(180deg, rgba(22, 30, 47, 0.55), rgba(9, 12, 19, 0.2));
+}
+.app-head { display: flex; gap: 14px; align-items: center; }
+.app-icon {
+  width: 56px; height: 56px; border-radius: 14px; flex: none; display: grid; place-items: center;
+  color: #fff; font-size: 24px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 8px 20px rgba(0,0,0,0.35);
+}
+.app h3 { margin: 0; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+.app-head small { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; }
+.app p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.tags { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+.app-link { font-size: 13.5px; color: var(--fg); padding-top: 14px; border-top: 1px solid var(--line); }
+.app-link:hover { color: var(--accent); }
+.tags span { font-family: var(--mono); font-size: 11.5px; color: var(--muted); background: var(--pill); border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; }
 
-// Package in progress.
-// Building in public, one
-// component at a time.
-SWIFT PACKAGE
-In progress
-Coming soon
-A reusable SwiftUI component, designed with first-party APIs and no third-party dependencies.
-Swift
-Swift Package Manager
-Follow on GitHub ↗
+/* Upcoming package placeholders */
+.card.soon { background: transparent; border-style: dashed; }
+.card.soon .preview { border-style: dashed; display: grid; place-items: center; }
+.card.soon .preview pre { color: var(--dim); }
+.skel { display: block; height: 10px; border-radius: 6px; background: var(--pill); }
+.skel + .skel { margin-top: 10px; }
+.soon .meta { color: var(--dim); }
 
+/* Mentoring preview: two phone frames */
+.phones { position: absolute; inset: 14px 14px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.phone { border-radius: 16px 16px 0 0; padding: 22px 10px 10px; display: grid; gap: 8px; align-content: start; position: relative; font-size: 10px; line-height: 1.35; }
+.phone::before { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 34%; height: 8px; border-radius: 6px; background: #000; }
+.phone.dark { background: #1c1f26; color: #f2f4f8; }
+.phone.light { background: #f4f5f8; color: #11141b; }
+.phone b { font-size: 11.5px; text-align: center; display: block; }
+.phone .slot { border-radius: 8px; padding: 7px 8px; }
+.phone.dark .slot { background: #2a2e37; }
+.phone.light .slot { background: #fff; }
+.phone .slot em { display: block; font-style: normal; opacity: .6; font-size: 9px; }
+.phone .go { background: var(--accent); color: #fff; text-align: center; border-radius: 8px; padding: 6px; font-weight: 600; }
 
+/* Values */
+.values { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+.value { display: grid; grid-template-columns: 36px 1fr; gap: 22px; padding: 36px 40px 56px 0; border-bottom: 1px solid var(--line); }
+.value:nth-child(2n) { border-left: 1px solid var(--line); padding-left: 34px; padding-right: 0; }
+.glyph {
+  width: 36px; height: 36px; border-radius: 9px; display: grid; place-items: center;
+  background: var(--accent-soft); border: 1px solid rgba(10, 132, 255, 0.35); color: #7cc0ff; font-size: 16px;
+}
+.value h3 { margin: 0; font-weight: 400; font-size: 24px; letter-spacing: -0.035em; line-height: 1.1; }
+.value p { margin: 14px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.72; max-width: 42ch; }
 
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 120px 48px; font-size: 13px; color: var(--muted); }
+footer nav { display: flex; gap: 22px; }
+footer a:hover { color: var(--fg); }
 
-SWIFT PACKAGE
-Planned
-Coming soon
-The next package in the series. Details will be posted here when it ships.
-Swift
-iOS 17+
-Follow on GitHub ↗
-VALUES
-How I approach the work.
-What twelve years of shipping iOS apps, leading teams, and mentoring engineers has taught me to care about.
-◎
-Users first
-Every feature starts with the person holding the device, whether it's a flight attendant mid-service or a customer paying a bill.
-✦
-Craft matters
-Accessibility, performance, and polish are part of the job, not extras. Small details decide whether people trust an app.
-▦
-Build strong foundations
-Clean architecture, solid tests, and steady modernization keep an app easy to change long after its first release.
-∞
-Collaborate without ego
-The best idea wins, wherever it comes from. Good code reviews teach, and a strong lead helps the whole team grow.
-COMMUNITY
-iOS interview prep, shared in public.
-1M+
-Views on Stack Overflow answers
-// Which line can never print first?
-let queue = DispatchQueue(
-    label: "demo",
+@media (max-width: 900px) {
+  .row { grid-template-columns: 1fr; gap: 14px; }
+  .when { order: -1; text-align: left; }
+  .when .loc { display: inline; margin: 0 0 0 10px; }
+  .card { grid-template-columns: 1fr; }
+  .preview { min-height: 200px; }
+}
+@media (max-width: 720px) {
+  .nav { display: none; }
+  .hero { padding-block: 90px 90px; }
+  .section { padding-block: 80px 24px; }
+  .metric { text-align: left; }
+  .values { grid-template-columns: 1fr; }
+  .value, .value:nth-child(2n) { border-left: 0; padding: 30px 0 40px; }
+}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top">Shobhakar Tiwari</a>
+      <div class="bar-right">
+        <nav class="nav" aria-label="Sections">
+          <a href="#experience">Experience</a>
+          <a href="#open-source">Open source</a>
+          <a href="#values">Values</a>
+          <a href="#community">Community</a>
+          <a href="#writing">Writing</a>
+          <a href="#apps">Apps</a>
+        </nav>
+        <div class="icons">
+          <a class="icon li" href="https://www.linkedin.com/in/shobhakar-tiwari/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z"/></svg></a>
+          <a class="icon xx" href="https://topmate.io/shobhakartiwari" target="_blank" rel="noopener" aria-label="Topmate"><svg viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3V2Zm12 8H5v9h14v-9ZM5 6v2h14V6H5Zm2 6h4v4H7v-4Z"/></svg></a>
+          <a class="icon gh" href="https://github.com/shobhakartiwari" target="_blank" rel="noopener" aria-label="GitHub" data-gh="1"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+          <a class="icon so" href="https://stackoverflow.com/users/3400991/shobhakar-tiwari" target="_blank" rel="noopener" aria-label="Stack Overflow"><svg viewBox="0 0 24 24"><path d="M17.4 20.6v-5.3h1.8V22.4H3.3v-7.1h1.8v5.3h12.3ZM6.9 14.6l8.7 1.8.4-1.8-8.7-1.8-.4 1.8Zm1.2-4.3 8 3.7.8-1.7-8-3.7-.8 1.7Zm2.2-3.9 6.8 5.6 1.1-1.4-6.8-5.6-1.1 1.4ZM14.7 2l-1.4 1.1 5.3 7.1 1.4-1.1L14.7 2ZM6.7 18.8h8.9V17H6.7v1.8Z"/></svg></a>
+          <a class="icon md" href="https://medium.com/@shobhakartiwari" target="_blank" rel="noopener" aria-label="Medium"><svg viewBox="0 0 24 24"><path d="M13.5 12a6.75 6.75 0 1 1-13.5 0 6.75 6.75 0 0 1 13.5 0Zm7.4 0c0 3.5-1.5 6.4-3.4 6.4s-3.4-2.9-3.4-6.4 1.5-6.4 3.4-6.4 3.4 2.9 3.4 6.4ZM24 12c0 3.2-.5 5.7-1.2 5.7s-1.2-2.5-1.2-5.7.5-5.7 1.2-5.7S24 8.8 24 12Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <img class="avatar" src="data:image/jpeg;base64,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" alt="Shobhakar Tiwari" width="112" height="112">
+      <h1><span>Software Engineer</span><span>Apple Platforms</span></h1>
+      <p>Building native iOS apps for iPhone and iPad, with on-device AI and a growing AI skillset</p>
+      <div class="cta"><div class="cta-group">
+        <a class="btn li" href="https://www.linkedin.com/in/shobhakar-tiwari/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-4v-11Z"/></svg>Connect</a>
+        <a class="btn gh" href="https://github.com/shobhakartiwari" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</a>
+        <a class="btn tm" href="https://topmate.io/shobhakartiwari" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3V2Zm12 8H5v9h14v-9ZM5 6v2h14V6H5Zm2 6h4v4H7v-4Z"/></svg>Connect for iOS Mock Interview</a>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <p class="eyebrow">Professional experience</p>
+      <h2>Product ownership backed by engineering depth.</h2>
+      <div class="rows">
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#5b2bd6">V</div><div><h3>Virtusa Corp.</h3><small>Senior Lead Software Engineer</small></div></div>
+          <p>Architected real-time bill pay for a major US banking app, supporting full, partial, and overpayments and lifting payment completion by 25%. Built Zelle send and receive flows, extended Zelle to brokerage accounts, and migrated the app from UIKit to SwiftUI incrementally, keeping the same App Store listing, users, and ratings.</p>
+          <span class="when">Feb '23 – Present<span class="loc">Chicago, USA</span></span>
+        </article>
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#1b3b8f">B</div><div><h3>Birlasoft Inc.</h3><small>Technical Lead<span class="client"> · United Airlines</span></small></div></div>
+          <p>Built a peer-to-peer app that lets United flight attendants share data between nearby devices over Wi-Fi Direct and Bluetooth, with Core Data syncing, conflict resolution, and AES encryption. Trimmed the app binary through dead-code removal, driving a 20% increase in installs on low-end devices.</p>
+          <span class="when">May '22 – Feb '23<span class="loc">Chicago, USA</span></span>
+        </article>
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#1b3b8f">B</div><div><h3>Birlasoft Limited</h3><small>Technical Specialist<span class="client"> · United Airlines</span></small></div></div>
+          <p>Led the Economy Sales module in United's ISA MealOrder app, including a seat layout that made seat selection 20% faster for flight attendants. Architected the Buy-on-Board product catalog, lifting onboard sales by 15%, and led teams across seven enterprise iOS projects.</p>
+          <span class="when">Mar '16 – May '22<span class="loc">Noida, India</span></span>
+        </article>
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#0f7a5a">F</div><div><h3>Fliplearn Education</h3><small>Software Engineer</small></div></div>
+          <p>Built the app's core screens in Objective-C and UIKit, and integrated Paytm so parents could pay school fees in the app, raising fee payment completion by 15%. Added offline content with Core Data and push notifications.</p>
+          <span class="when">Dec '15 – Mar '16<span class="loc">Noida, India</span></span>
+        </article>
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#b45309">S</div><div><h3>Smartclass Education</h3><small>Software Engineer</small></div></div>
+          <p>Designed and launched a new iOS app in Swift, UIKit, and Core Data, and refactored legacy Objective-C code into reusable, faster Swift components.</p>
+          <span class="when">Aug '15 – Nov '15<span class="loc">Noida, India</span></span>
+        </article>
+        <article class="row">
+          <div class="who"><div class="logo" style="background:#475569">O</div><div><h3>Outworx Solutions</h3><small>Software Engineer</small></div></div>
+          <p>Started my career building native iPhone apps in Objective-C and UIKit, with responsive Auto Layout screens, and handled certificates, provisioning, and App Store releases.</p>
+          <span class="when">May '14 – Aug '15<span class="loc">Noida, India</span></span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="open-source">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Open source</p>
+          <h2>Reusable SwiftUI infrastructure, built in public.</h2>
+        </div>
+        <div class="metric"><strong>★ 436</strong><span>GitHub stars across public projects</span></div>
+      </div>
+      <div class="grid">
+        <article class="card soon">
+          <div class="preview" aria-hidden="true">
+<pre><code><span class="k">import</span> SwiftUI
+
+<span class="c">// Package in progress.</span>
+<span class="c">// Building in public, one</span>
+<span class="c">// component at a time.</span></code></pre>
+          </div>
+          <div class="body">
+            <div class="topline"><span class="kind">Swift package</span><span class="badge">In progress</span></div>
+            <h3>Coming soon</h3>
+            <p>A reusable SwiftUI component, designed with first-party APIs and no third-party dependencies.</p>
+            <div class="meta"><span><i></i>Swift</span><span>Swift Package Manager</span></div>
+            <div class="foot"><a href="https://github.com/shobhakartiwari" target="_blank" rel="noopener">Follow on GitHub ↗</a></div>
+          </div>
+        </article>
+        <article class="card soon">
+          <div class="preview" aria-hidden="true"><div style="width:70%"><span class="skel" style="width:80%"></span><span class="skel"></span><span class="skel" style="width:60%"></span><span class="skel" style="width:90%"></span></div></div>
+          <div class="body">
+            <div class="topline"><span class="kind">Swift package</span><span class="badge">Planned</span></div>
+            <h3>Coming soon</h3>
+            <p>The next package in the series. Details will be posted here when it ships.</p>
+            <div class="meta"><span><i></i>Swift</span><span>iOS 17+</span></div>
+            <div class="foot"><a href="https://github.com/shobhakartiwari" target="_blank" rel="noopener">Follow on GitHub ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="values">
+    <div class="wrap">
+      <p class="eyebrow">Values</p>
+      <h2>How I approach the work.</h2>
+      <p class="section-intro">What twelve years of shipping iOS apps, leading teams, and mentoring engineers has taught me to care about.</p>
+      <div class="values">
+        <div class="value"><span class="glyph" aria-hidden="true">◎</span><div><h3>Users first</h3><p>Every feature starts with the person holding the device, whether it's a flight attendant mid-service or a customer paying a bill.</p></div></div>
+        <div class="value"><span class="glyph" aria-hidden="true">✦</span><div><h3>Craft matters</h3><p>Accessibility, performance, and polish are part of the job, not extras. Small details decide whether people trust an app.</p></div></div>
+        <div class="value"><span class="glyph" aria-hidden="true">▦</span><div><h3>Build strong foundations</h3><p>Clean architecture, solid tests, and steady modernization keep an app easy to change long after its first release.</p></div></div>
+        <div class="value"><span class="glyph" aria-hidden="true">∞</span><div><h3>Collaborate without ego</h3><p>The best idea wins, wherever it comes from. Good code reviews teach, and a strong lead helps the whole team grow.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="community">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Community</p>
+          <h2>iOS interview prep, shared in public.</h2>
+        </div>
+        <div class="metric"><strong>1M+</strong><span>Views on Stack Overflow answers</span></div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="preview" aria-hidden="true">
+<pre><code><span class="c">// Which line can never print first?</span>
+<span class="k">let</span> queue = <span class="t">DispatchQueue</span>(
+    label: <span class="s">"demo"</span>,
     attributes: .concurrent)
 
-DispatchQueue.main.async {
-    print("A")
+<span class="t">DispatchQueue</span>.main.<span class="f">async</span> {
+    <span class="f">print</span>(<span class="s">"A"</span>)
 }
-queue.async { print("B") }
-print("C")
-QUESTION BANK
-★ 197
-iOS_Lead_Interview
-Architecture, concurrency, system design, and leadership questions for senior and lead iOS roles.
-Swift
-27 forks
-View on GitHub ↗
-// Struct or class: what prints?
-struct Point { var x = 0 }
+queue.<span class="f">async</span> { <span class="f">print</span>(<span class="s">"B"</span>) }
+<span class="f">print</span>(<span class="s">"C"</span>)</code></pre>
+          </div>
+          <div class="body">
+            <div class="topline"><span class="kind">Question bank</span><span class="badge">★ 197</span></div>
+            <h3>iOS_Lead_Interview</h3>
+            <p>Architecture, concurrency, system design, and leadership questions for senior and lead iOS roles.</p>
+            <div class="meta"><span><i></i>Swift</span><span>27 forks</span></div>
+            <div class="foot"><a href="https://github.com/shobhakartiwari/iOS_Lead_Interview" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="preview" aria-hidden="true">
+<pre><code><span class="c">// Struct or class: what prints?</span>
+<span class="k">struct</span> <span class="t">Point</span> { <span class="k">var</span> x = <span class="s">0</span> }
 
-var a = Point()
-var b = a
-b.x = 5
+<span class="k">var</span> a = <span class="t">Point</span>()
+<span class="k">var</span> b = a
+b.x = <span class="s">5</span>
 
-print(a.x, b.x)
-// 0 5, value semantics
-QUESTION BANK
-★ 72
-iOS_Junior_Level_Interview_Questions
-Swift, UIKit, and memory management fundamentals for engineers preparing for their first iOS role.
-Swift
-13 forks
-View on GitHub ↗
-Book a session
-iOS Mock Interview
-Video call · 1:1
-Resume Review
-Feedback in 48 hrs
-Career Guidance
-15 min call
-Book now
-Book a session
-iOS Mock Interview
-Video call · 1:1
-Resume Review
-Feedback in 48 hrs
-Career Guidance
-15 min call
-Book now
-MENTORING
-268 sessions
-mock.iOS
-Mock interviews, résumé reviews, and career guidance for iOS engineers in India and the US.
-1:1 video calls
-Topmate verified
-Book on Topmate ↗
-WRITING
-Sharing what I learn, one article at a time.
-1.5K
-Followers on Medium, 40+ articles
-CAREER
-AI Won’t Replace iOS Developers
-Feb 2025
-240 claps
-SWIFT
-Why Are Stored Properties Not Allowed in Enums in Swift?
-Feb 2025
-206 claps
-SWIFT
-@frozen in Swift
-Jan 2025
-188 claps
-SWIFTUI
-Avoid SwiftUI Mistake with ViewModels
-Jul 2025
-146 claps
-ARCHITECTURE
-When to Avoid Using a Singleton in Swift
-Mar 2025
-69 claps
-PUSH NOTIFICATIONS
-iOS Push Notifications: Stop Asking Permission on Day One
-Oct 2025
-58 claps
-Read all articles on Medium ↗
-APPS
-Apps I've built over the years.
-From banking and airline operations to education, these are some of the iOS apps I've designed, built, and shipped since 2014.
-PNC
-PNC Mobile Banking
-Banking · iPhone & iPad
-Real-time bill pay, scheduled payments, and Zelle send and receive flows, with the app moving from UIKit to SwiftUI.
-SwiftUI
-UIKit
-Combine
-async/await
-Clean Swift
-Accessibility
-HIG
-Adobe Analytics
-AppDynamics
-View on the App Store ↗
-✈
-ISA MealOrder
-United Airlines · iPhone & iPad
-Inflight meal and Buy-on-Board sales for flight attendants, with an interactive seat map and a product catalog that lifted onboard sales by 15%.
-Swift
-UIKit
-Couchbase Lite
-Couchbase
-N1QL
-Session-based sync
-AppDynamics
-Artifactory
-AirWatch
-Distributed in-house to United crew
-⇄
-P2P MealOrder
-United Airlines · iPhone & iPad
-Lets flight attendants send and receive data between nearby devices with no internet, using a custom framework over Wi-Fi Direct and Bluetooth.
-Swift
-Wi-Fi Direct
-Bluetooth
-AES
-MongoDB
-Couchbase Lite
-Couchbase Server
-SQLite indexing
-Distributed in-house to United crew
-OUA
-OUA UltraTech
-Enterprise · iOS & Android
-Built the One UltraTech App natively on both iOS and Android, with deep links that open users straight into key screens.
-Swift
-UIKit
-Android
-Java
-XML layouts
-Deep linking
-View on Google Play ↗
-⟳
-Insight
-United Airlines · Gate staff
-A real-time app that shows United gate staff flight changes as they happen. Two-way sync keeps the data and UI up to date across every device.
-Swift
-UIKit
-Couchbase Lite
-Couchbase
-N1QL
-Session-based sync
-Two-way sync
-AppDynamics
-Artifactory
-AirWatch
-Distributed in-house to United staff
-♻
-Veolia
-Waste management · UK
-An iOS app for a UK client that tracks garbage collection and waste management work, with data flowing to and from Salesforce over REST APIs.
-Swift
-UIKit
-Cocoa Touch
-Alamofire
-REST APIs
-Salesforce
-Distributed in-house and through Apple's Volume Purchase Program
-✎
-Fliplearn
-Fliplearn Education · 2015
-A school learning app for students and parents, with a social feed, offline content, and Paytm fee payments that raised completion by 15%.
-Objective-C
-Core Data
-Paytm
-View on the App Store ↗
-←
-1 / 7
-→
-© 2026 Shobhakar Tiwari
-LinkedIn
-Stack Overflow
-Medium
-GitHub
+<span class="f">print</span>(a.x, b.x)
+<span class="c">// 0 5, value semantics</span></code></pre>
+          </div>
+          <div class="body">
+            <div class="topline"><span class="kind">Question bank</span><span class="badge">★ 72</span></div>
+            <h3>iOS_Junior_Level_Interview_Questions</h3>
+            <p>Swift, UIKit, and memory management fundamentals for engineers preparing for their first iOS role.</p>
+            <div class="meta"><span><i></i>Swift</span><span>13 forks</span></div>
+            <div class="foot"><a href="https://github.com/shobhakartiwari/iOS_Junior_Level_Interview_Questions" target="_blank" rel="noopener">View on GitHub ↗</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="preview" aria-hidden="true">
+            <div class="phones">
+              <div class="phone dark">
+                <b>Book a session</b>
+                <div class="slot">iOS Mock Interview<em>Video call · 1:1</em></div>
+                <div class="slot">Resume Review<em>Feedback in 48 hrs</em></div>
+                <div class="slot">Career Guidance<em>15 min call</em></div>
+                <div class="go">Book now</div>
+              </div>
+              <div class="phone light">
+                <b>Book a session</b>
+                <div class="slot">iOS Mock Interview<em>Video call · 1:1</em></div>
+                <div class="slot">Resume Review<em>Feedback in 48 hrs</em></div>
+                <div class="slot">Career Guidance<em>15 min call</em></div>
+                <div class="go">Book now</div>
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <div class="topline"><span class="kind">Mentoring</span><span class="badge">268 sessions</span></div>
+            <h3>mock.iOS</h3>
+            <p>Mock interviews, résumé reviews, and career guidance for iOS engineers in India and the US.</p>
+            <div class="meta"><span>1:1 video calls</span><span>Topmate verified</span></div>
+            <div class="foot"><a href="https://topmate.io/shobhakartiwari" target="_blank" rel="noopener">Book on Topmate ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="writing">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Writing</p>
+          <h2>Sharing what I learn, one article at a time.</h2>
+        </div>
+        <div class="metric"><strong>1.5K</strong><span>Followers on Medium, 40+ articles</span></div>
+      </div>
+      <div class="posts">
+        <a class="post" href="https://medium.com/@shobhakartiwari/ai-wont-replace-ios-developers-9441c7a0732e" target="_blank" rel="noopener">
+          <span class="kind">Career</span>
+          <h3>AI Won’t Replace iOS Developers</h3>
+          <div class="post-meta"><span>Feb 2025</span><span>240 claps</span></div>
+        </a>
+        <a class="post" href="https://medium.com/@shobhakartiwari/why-are-stored-properties-not-allowed-in-enums-in-swift-31c27f0210ca" target="_blank" rel="noopener">
+          <span class="kind">Swift</span>
+          <h3>Why Are Stored Properties Not Allowed in Enums in Swift?</h3>
+          <div class="post-meta"><span>Feb 2025</span><span>206 claps</span></div>
+        </a>
+        <a class="post" href="https://medium.com/@shobhakartiwari/frozen-in-swift-c25f934369a8" target="_blank" rel="noopener">
+          <span class="kind">Swift</span>
+          <h3>@frozen in Swift</h3>
+          <div class="post-meta"><span>Jan 2025</span><span>188 claps</span></div>
+        </a>
+        <a class="post" href="https://medium.com/@shobhakartiwari/avoid-swiftui-mistake-with-viewmodels-d203fbba7267" target="_blank" rel="noopener">
+          <span class="kind">SwiftUI</span>
+          <h3>Avoid SwiftUI Mistake with ViewModels</h3>
+          <div class="post-meta"><span>Jul 2025</span><span>146 claps</span></div>
+        </a>
+        <a class="post" href="https://medium.com/@shobhakartiwari/when-to-avoid-using-a-singleton-in-swift-4821de7d2b65" target="_blank" rel="noopener">
+          <span class="kind">Architecture</span>
+          <h3>When to Avoid Using a Singleton in Swift</h3>
+          <div class="post-meta"><span>Mar 2025</span><span>69 claps</span></div>
+        </a>
+        <a class="post" href="https://medium.com/@shobhakartiwari/ios-push-notifications-stop-asking-permission-on-day-one-7a2fb2bbe366" target="_blank" rel="noopener">
+          <span class="kind">Push notifications</span>
+          <h3>iOS Push Notifications: Stop Asking Permission on Day One</h3>
+          <div class="post-meta"><span>Oct 2025</span><span>58 claps</span></div>
+        </a>
+      </div>
+      <p class="more"><a href="https://medium.com/@shobhakartiwari" target="_blank" rel="noopener">Read all articles on Medium ↗</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="apps">
+    <div class="wrap">
+      <p class="eyebrow">Apps</p>
+      <h2>Apps I've built over the years.</h2>
+      <p class="section-intro">From banking and airline operations to education, these are some of the iOS apps I've designed, built, and shipped since 2014.</p>
+      <div class="apps" id="apps-track" tabindex="0" aria-label="Apps, scroll sideways to flip through">
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#2563eb,#1e3a8a)" aria-hidden="true"><span style="font-size:16px;font-weight:700;letter-spacing:0.02em">PNC</span></div><div><h3>PNC Mobile Banking</h3><small>Banking · iPhone &amp; iPad</small></div></div>
+          <p>Real-time bill pay, scheduled payments, and Zelle send and receive flows, with the app moving from UIKit to SwiftUI.</p>
+          <div class="tags"><span>SwiftUI</span><span>UIKit</span><span>Combine</span><span>async/await</span><span>Clean Swift</span><span>Accessibility</span><span>HIG</span><span>Adobe Analytics</span><span>AppDynamics</span></div>
+          <a class="app-link" href="https://apps.apple.com/us/app/pnc-mobile-banking/id303113127" target="_blank" rel="noopener">View on the App Store ↗</a>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#0ea5e9,#1d4ed8)" aria-hidden="true">✈</div><div><h3>ISA MealOrder</h3><small>United Airlines · iPhone &amp; iPad</small></div></div>
+          <p>Inflight meal and Buy-on-Board sales for flight attendants, with an interactive seat map and a product catalog that lifted onboard sales by 15%.</p>
+          <div class="tags"><span>Swift</span><span>UIKit</span><span>Couchbase Lite</span><span>Couchbase</span><span>N1QL</span><span>Session-based sync</span><span>AppDynamics</span><span>Artifactory</span><span>AirWatch</span></div>
+          <span class="app-link" style="color:var(--muted)">Distributed in-house to United crew</span>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#14b8a6,#0f766e)" aria-hidden="true">⇄</div><div><h3>P2P MealOrder</h3><small>United Airlines · iPhone &amp; iPad</small></div></div>
+          <p>Lets flight attendants send and receive data between nearby devices with no internet, using a custom framework over Wi-Fi Direct and Bluetooth.</p>
+          <div class="tags"><span>Swift</span><span>Wi-Fi Direct</span><span>Bluetooth</span><span>AES</span><span>MongoDB</span><span>Couchbase Lite</span><span>Couchbase Server</span><span>SQLite indexing</span></div>
+          <span class="app-link" style="color:var(--muted)">Distributed in-house to United crew</span>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#a855f7,#6d28d9)" aria-hidden="true"><span style="font-size:15px;font-weight:700;letter-spacing:0.02em">OUA</span></div><div><h3>OUA UltraTech</h3><small>Enterprise · iOS &amp; Android</small></div></div>
+          <p>Built the One UltraTech App natively on both iOS and Android, with deep links that open users straight into key screens.</p>
+          <div class="tags"><span>Swift</span><span>UIKit</span><span>Android</span><span>Java</span><span>XML layouts</span><span>Deep linking</span></div>
+          <a class="app-link" href="https://play.google.com/store/apps/details?id=com.utcl.oua&amp;hl=en_US" target="_blank" rel="noopener">View on Google Play ↗</a>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#22c55e,#15803d)" aria-hidden="true">⟳</div><div><h3>Insight</h3><small>United Airlines · Gate staff</small></div></div>
+          <p>A real-time app that shows United gate staff flight changes as they happen. Two-way sync keeps the data and UI up to date across every device.</p>
+          <div class="tags"><span>Swift</span><span>UIKit</span><span>Couchbase Lite</span><span>Couchbase</span><span>N1QL</span><span>Session-based sync</span><span>Two-way sync</span><span>AppDynamics</span><span>Artifactory</span><span>AirWatch</span></div>
+          <span class="app-link" style="color:var(--muted)">Distributed in-house to United staff</span>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#06b6d4,#0e7490)" aria-hidden="true">♻</div><div><h3>Veolia</h3><small>Waste management · UK</small></div></div>
+          <p>An iOS app for a UK client that tracks garbage collection and waste management work, with data flowing to and from Salesforce over REST APIs.</p>
+          <div class="tags"><span>Swift</span><span>UIKit</span><span>Cocoa Touch</span><span>Alamofire</span><span>REST APIs</span><span>Salesforce</span></div>
+          <span class="app-link" style="color:var(--muted)">Distributed in-house and through Apple's Volume Purchase Program</span>
+        </article>
+        <article class="app">
+          <div class="app-head"><div class="app-icon" style="background:linear-gradient(135deg,#f59e0b,#ea580c)" aria-hidden="true">✎</div><div><h3>Fliplearn</h3><small>Fliplearn Education · 2015</small></div></div>
+          <p>A school learning app for students and parents, with a social feed, offline content, and Paytm fee payments that raised completion by 15%.</p>
+          <div class="tags"><span>Objective-C</span><span>Core Data</span><span>Paytm</span></div>
+          <a class="app-link" href="https://apps.apple.com/in/app/fliplearn-school-e-learning/id1531276367" target="_blank" rel="noopener">View on the App Store ↗</a>
+        </article>
+      </div>
+      <div class="flip-nav">
+        <button class="flip-btn" id="flip-prev" type="button" aria-label="Previous app">←</button>
+        <div class="dots" id="flip-dots"></div>
+        <span class="flip-count" id="flip-count">1 / 7</span>
+        <button class="flip-btn" id="flip-next" type="button" aria-label="Next app">→</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Shobhakar Tiwari</span>
+    <nav aria-label="Social">
+      <a href="https://www.linkedin.com/in/shobhakar-tiwari/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://stackoverflow.com/users/3400991/shobhakar-tiwari" target="_blank" rel="noopener">Stack Overflow</a>
+      <a href="https://medium.com/@shobhakartiwari" target="_blank" rel="noopener">Medium</a>
+      <a href="https://github.com/shobhakartiwari" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const track = document.getElementById('apps-track');
+  if (!track) return;
+  const cards = [...track.querySelectorAll('.app')];
+  const dotsEl = document.getElementById('flip-dots');
+  const count = document.getElementById('flip-count');
+  const prev = document.getElementById('flip-prev');
+  const next = document.getElementById('flip-next');
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let active = 0, ticking = false;
+
+  const dots = cards.map((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Go to app ' + (i + 1));
+    b.addEventListener('click', () => go(i));
+    dotsEl.appendChild(b);
+    return b;
+  });
+
+  function go(i) {
+    const c = cards[Math.max(0, Math.min(cards.length - 1, i))];
+    const left = c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2;
+    track.scrollTo({ left, behavior: still.matches ? 'auto' : 'smooth' });
+  }
+
+  function render() {
+    ticking = false;
+    const r = track.getBoundingClientRect();
+    const mid = r.left + r.width / 2;
+    let best = 0, bestD = Infinity;
+    cards.forEach((el, i) => {
+      const b = el.getBoundingClientRect();
+      const d = (b.left + b.width / 2 - mid) / (b.width + 22);
+      if (Math.abs(d) < bestD) { bestD = Math.abs(d); best = i; }
+      if (still.matches) { el.style.transform = ''; el.style.opacity = ''; return; }
+      const t = Math.max(-1.6, Math.min(1.6, d));
+      const a = Math.min(Math.abs(t), 1);
+      // Pages hinge on the edge nearest the centre, like turning a page
+      el.style.transformOrigin = t > 0 ? 'left center' : 'right center';
+      el.style.transform = 'rotateY(' + (-t * 38).toFixed(2) + 'deg) translateZ(' + (-a * 70).toFixed(1) + 'px) scale(' + (1 - a * 0.06).toFixed(3) + ')';
+      el.style.opacity = (1 - Math.min(Math.abs(t), 1.6) * 0.3).toFixed(3);
+      el.style.zIndex = String(100 - Math.round(Math.abs(d) * 10));
+    });
+    if (best !== active || !count.dataset.ready) {
+      active = best;
+      count.dataset.ready = '1';
+      dots.forEach((b, i) => b.setAttribute('aria-current', i === active ? 'true' : 'false'));
+      cards.forEach((c, i) => c.classList.toggle('is-active', i === active));
+      count.textContent = (active + 1) + ' / ' + cards.length;
+      prev.disabled = active === 0;
+      next.disabled = active === cards.length - 1;
+    }
+  }
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(render); } };
+
+  track.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  prev.addEventListener('click', () => go(active - 1));
+  next.addEventListener('click', () => go(active + 1));
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(active + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(active - 1); }
+  });
+  // Mouse wheel: vertical scrolling flips pages while the pointer is over the track
+  track.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    const atStart = track.scrollLeft <= 0 && e.deltaY < 0;
+    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1 && e.deltaY > 0;
+    if (atStart || atEnd) return;
+    e.preventDefault();
+    track.scrollBy({ left: e.deltaY, behavior: 'auto' });
+  }, { passive: false });
+  still.addEventListener?.('change', render);
+  render();
+})();
+</script>
+
+</body>
+</html>
