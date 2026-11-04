@@ -1,942 +1,282 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shobhakar Tiwari - iOS Engineer with 10+ years of expertise in Swift, SwiftUI, Xcode, Objective-C, and mobile architecture">
-    <meta name="keywords" content="iOS Developer, Swift, SwiftUI, Mobile Engineer, iOS Mentor, Shobhakar Tiwari">
-    <meta name="author" content="Shobhakar Tiwari">
-    <title>Shobhakar Tiwari | iOS Engineer</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6C63FF;
-            --primary-dark: #5548E0;
-            --secondary: #FF6584;
-            --dark: #1A1A2E;
-            --text-dark: #16213E;
-            --text-gray: #6B7280;
-            --light-bg: #F9FAFB;
-            --white: #FFFFFF;
-            --border: #E5E7EB;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-alt: linear-gradient(135deg, #6C63FF 0%, #5548E0 100%);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--white);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 1.2rem 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--white);
-            padding: 10rem 2rem 6rem;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 20%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background: var(--light-bg);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            line-height: 1.1;
-            letter-spacing: -2px;
-            animation: fadeInUp 0.8s ease 0.1s both;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-gray);
-            margin-bottom: 1rem;
-            font-weight: 500;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero .bio {
-            font-size: 1.15rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease 0.3s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-            display: inline-block;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-dark);
-            border: 2px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stats {
-            padding: 5rem 2rem;
-            background: var(--light-bg);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border-color: var(--primary);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        .about {
-            padding: 7rem 2rem;
-            background: var(--white);
-        }
-
-        .section-title {
-            font-size: 3rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.15rem;
-            color: var(--text-gray);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            color: var(--text-gray);
-            margin-bottom: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .highlight-text {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 1rem;
-        }
-
-        .skill-tag {
-            padding: 1.2rem 1rem;
-            background: var(--light-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-            color: var(--primary);
-            background: rgba(108, 99, 255, 0.05);
-        }
-
-        .experience {
-            padding: 7rem 2rem;
-            background: var(--light-bg);
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: var(--border);
-        }
-
-        .timeline-item {
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            box-shadow: 0 0 0 4px var(--light-bg);
-            z-index: 2;
-        }
-
-        .timeline-content {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            width: calc(50% - 40px);
-            position: relative;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .timeline-content:hover {
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .timeline-content .company {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content .date {
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-        }
-
-        .timeline-content p {
-            color: var(--text-gray);
-            line-height: 1.7;
-        }
-
-        .projects {
-            padding: 7rem 2rem;
-            background: var(--white);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .project-icon {
-            width: 100%;
-            height: 220px;
-            background: var(--gradient-alt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-icon::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .project-content p {
-            color: var(--text-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            padding: 0.5rem 1rem;
-            background: var(--light-bg);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
-            border: 1px solid var(--border);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .project-link:hover {
-            gap: 0.8rem;
-        }
-
-        .contact {
-            padding: 7rem 2rem;
-            background: var(--light-bg);
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-content p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            width: 70px;
-            height: 70px;
-            border-radius: 20px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(108, 99, 255, 0.3);
-            border-color: var(--primary);
-        }
-
-        footer {
-            padding: 2.5rem;
-            background: var(--text-dark);
-            color: white;
-            text-align: center;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .hero .bio {
-                font-size: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
-            .timeline-dot {
-                left: 20px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px !important;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease;
-        }
-
-        @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(20px);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0);
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="container">
-            <div class="logo">Shobhakar Tiwari</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-tag">🚀 Building for Apple Platforms</div>
-            <h1>Shobhakar Tiwari</h1>
-            <p class="subtitle">iOS Engineer</p>
-            <p class="bio">
-                I write more code to code less • 10+ years of expertise in Swift, SwiftUI, Xcode, Objective-C, and mobile architecture • Building exceptional apps for Apple Platforms
-            </p>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#projects" class="btn btn-secondary">View Work</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Enterprise Apps</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Developers Mentored</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8K+</div>
-                    <div class="stat-label">LinkedIn Followers</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">iOS Engineer passionate about building exceptional mobile experiences and mentoring the next generation of developers</p>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who I Am</h3>
-                    <p>
-                        I'm an iOS Engineer currently working in the <span class="highlight-text">United States (CST timezone)</span> with over a decade of experience building enterprise-grade mobile applications for Apple platforms.
-                    </p>
-                    <p>
-                        I've led iOS development at <span class="highlight-text">United Airlines</span>, building Inflight, MealOrder, and P2P applications using custom peer-to-peer frameworks with WiFi Direct and Bluetooth. Currently at <span class="highlight-text">Virtusa</span>, I focus on SwiftUI reusable components and exploring VisionOS and Swift Macros.
-                    </p>
-                    <p>
-                        Beyond coding, I'm passionate about giving back to the iOS community through mentorship on <span class="highlight-text">Topmate</span>, writing technical articles on <span class="highlight-text">Medium (1.4K+ followers)</span>, maintaining active presence on <span class="highlight-text">StackOverflow (1.1M+ reach)</span>, and helping developers succeed in iOS interviews.
-                    </p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-tag">Swift</div>
-                    <div class="skill-tag">SwiftUI</div>
-                    <div class="skill-tag">Objective-C</div>
-                    <div class="skill-tag">Xcode</div>
-                    <div class="skill-tag">UIKit</div>
-                    <div class="skill-tag">Combine</div>
-                    <div class="skill-tag">MVVM</div>
-                    <div class="skill-tag">VisionOS</div>
-                    <div class="skill-tag">Git</div>
-                    <div class="skill-tag">Kotlin</div>
-                    <div class="skill-tag">Jetpack Compose</div>
-                    <div class="skill-tag">Node.js</div>
-                    <div class="skill-tag">Couchbase</div>
-                    <div class="skill-tag">Unit Testing</div>
-                    <div class="skill-tag">CI/CD</div>
-                    <div class="skill-tag">Mentorship</div>
-                    <div class="skill-tag">AI/ML</div>
-                    <div class="skill-tag">Algorithms</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <p class="section-subtitle">My journey building exceptional iOS applications for leading companies</p>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior Lead Software Engineer</h3>
-                        <div class="company">Virtusa</div>
-                        <div class="date">Present • United States (CST)</div>
-                        <p>Leading iOS development with focus on SwiftUI reusable components, exploring VisionOS and Swift Macros. Building enterprise-grade mobile solutions for international clients with emphasis on clean architecture and scalability.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>iOS Lead Engineer</h3>
-                        <div class="company">United Airlines</div>
-                        <div class="date">Previous Role</div>
-                        <p>Led iOS development for Inflight, MealOrder, and P2P applications. Created custom peer-to-peer framework using WiFi Direct and Bluetooth. Managed banking domain iOS projects with focus on security and performance.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Senior iOS Developer</h3>
-                        <div class="company">BirlaSoft</div>
-                        <div class="date">Previous Role</div>
-                        <p>Developed complex iOS applications using Swift and Objective-C. Implemented MVVM architecture patterns and led code reviews to improve team efficiency and code quality.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>iOS Developer Journey Began</h3>
-                        <div class="company">Noida, India</div>
-                        <div class="date">2013</div>
-                        <p>Started iOS development journey, mastering Swift and Objective-C fundamentals while building applications and gradually advancing to complex enterprise projects.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects & Community</h2>
-            <p class="section-subtitle">Open source contributions, mentorship programs, and technical content</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">📚</div>
-                    <div class="project-content">
-                        <h3>iOS Interview Preparation</h3>
-                        <p>Comprehensive resources helping developers at all levels prepare for iOS technical interviews. Includes question banks for junior and lead positions.</p>
-                        <div class="project-tags">
-                            <span class="tag">Swift</span>
-                            <span class="tag">Interview Prep</span>
-                            <span class="tag">Education</span>
-                        </div>
-                        <a href="https://topmate.io/shobhakartiwari" class="project-link">View Resources →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">🎯</div>
-                    <div class="project-content">
-                        <h3>mock.iOS</h3>
-                        <p>1-on-1 mock interview program helping iOS developers excel in technical interviews through personalized feedback and expert guidance.</p>
-                        <div class="project-tags">
-                            <span class="tag">Mentorship</span>
-                            <span class="tag">Mock Interviews</span>
-                            <span class="tag">Career Growth</span>
-                        </div>
-                        <a href="https://topmate.io/shobhakartiwari" class="project-link">Book Session →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">🖼️</div>
-                    <div class="project-content">
-                        <h3>FlickerApp</h3>
-                        <p>iOS application built using SwiftUI following MVVM architecture. Demonstrates API integration with clean code patterns and modern Swift practices.</p>
-                        <div class="project-tags">
-                            <span class="tag">SwiftUI</span>
-                            <span class="tag">MVVM</span>
-                            <span class="tag">API Integration</span>
-                        </div>
-                        <a href="https://github.com/shobhakartiwari" class="project-link">View Code →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">✈️</div>
-                    <div class="project-content">
-                        <h3>United Airlines Apps</h3>
-                        <p>Enterprise iOS applications including Inflight, MealOrder, and P2P. Built custom frameworks for peer-to-peer communication using WiFi Direct and Bluetooth.</p>
-                        <div class="project-tags">
-                            <span class="tag">Enterprise</span>
-                            <span class="tag">Networking</span>
-                            <span class="tag">Bluetooth</span>
-                        </div>
-                        <a href="#" class="project-link">Enterprise Project →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">✍️</div>
-                    <div class="project-content">
-                        <h3>Technical Writing</h3>
-                        <p>Regular contributor to Medium with 1.4K+ followers, writing in-depth articles on iOS development, Swift concurrency, and career guidance.</p>
-                        <div class="project-tags">
-                            <span class="tag">Blogging</span>
-                            <span class="tag">Education</span>
-                            <span class="tag">Community</span>
-                        </div>
-                        <a href="https://medium.com/@shobhakartiwari" class="project-link">Read Articles →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">💡</div>
-                    <div class="project-content">
-                        <h3>StackOverflow Contributions</h3>
-                        <p>Active contributor with 1.1M+ reach, helping developers solve iOS development challenges and sharing knowledge with the community.</p>
-                        <div class="project-tags">
-                            <span class="tag">Q&A</span>
-                            <span class="tag">Community Help</span>
-                            <span class="tag">iOS Solutions</span>
-                        </div>
-                        <a href="https://stackoverflow.com/users/shobhakartiwari" class="project-link">View Profile →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <p>
-                    I'm always open to discussing new projects, mentorship opportunities, iOS interview preparation, or just chatting about mobile development and AI. Feel free to reach out!
-                </p>
-                <div class="social-links">
-                    <a href="https://github.com/shobhakartiwari" class="social-link" title="GitHub" aria-label="GitHub">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/shobhakar-tiwari/" class="social-link" title="LinkedIn" aria-label="LinkedIn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="https://medium.com/@shobhakartiwari" class="social-link" title="Medium" aria-label="Medium">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
-                        </svg>
-                    </a>
-                    <a href="https://topmate.io/shobhakartiwari" class="social-link" title="Topmate" aria-label="Topmate">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:shobhakartiwari@gmail.com" class="social-link" title="Email" aria-label="Email">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Shobhakar Tiwari. Building for Apple Platforms with passion and precision.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.stat-card, .project-card, .timeline-item, .skill-tag').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+Shobhakar Tiwari
+Experience
+Open source
+Values
+Community
+Writing
+Apps
+
+
+
+
+
+￼
+Software Engineer
+Apple Platforms
+Building native iOS apps for iPhone and iPad, with on-device AI and a growing AI skillset
+
+Connect
+
+GitHub
+
+Connect for iOS Mock Interview
+PROFESSIONAL EXPERIENCE
+Product ownership backed by engineering depth.
+V
+Virtusa Corp.
+Senior Lead Software Engineer
+Architected real-time bill pay for a major US banking app, supporting full, partial, and overpayments and lifting payment completion by 25%. Built Zelle send and receive flows, extended Zelle to brokerage accounts, and migrated the app from UIKit to SwiftUI incrementally, keeping the same App Store listing, users, and ratings.
+FEB '23 – PRESENTChicago, USA
+B
+Birlasoft Inc.
+Technical Lead · United Airlines
+Built a peer-to-peer app that lets United flight attendants share data between nearby devices over Wi-Fi Direct and Bluetooth, with Core Data syncing, conflict resolution, and AES encryption. Trimmed the app binary through dead-code removal, driving a 20% increase in installs on low-end devices.
+MAY '22 – FEB '23Chicago, USA
+B
+Birlasoft Limited
+Technical Specialist · United Airlines
+Led the Economy Sales module in United's ISA MealOrder app, including a seat layout that made seat selection 20% faster for flight attendants. Architected the Buy-on-Board product catalog, lifting onboard sales by 15%, and led teams across seven enterprise iOS projects.
+MAR '16 – MAY '22Noida, India
+F
+Fliplearn Education
+Software Engineer
+Built the app's core screens in Objective-C and UIKit, and integrated Paytm so parents could pay school fees in the app, raising fee payment completion by 15%. Added offline content with Core Data and push notifications.
+DEC '15 – MAR '16Noida, India
+S
+Smartclass Education
+Software Engineer
+Designed and launched a new iOS app in Swift, UIKit, and Core Data, and refactored legacy Objective-C code into reusable, faster Swift components.
+AUG '15 – NOV '15Noida, India
+O
+Outworx Solutions
+Software Engineer
+Started my career building native iPhone apps in Objective-C and UIKit, with responsive Auto Layout screens, and handled certificates, provisioning, and App Store releases.
+MAY '14 – AUG '15Noida, India
+OPEN SOURCE
+Reusable SwiftUI infrastructure, built in public.
+★ 436
+GitHub stars across public projects
+import SwiftUI
+
+// Package in progress.
+// Building in public, one
+// component at a time.
+SWIFT PACKAGE
+In progress
+Coming soon
+A reusable SwiftUI component, designed with first-party APIs and no third-party dependencies.
+Swift
+Swift Package Manager
+Follow on GitHub ↗
+
+
+
+
+SWIFT PACKAGE
+Planned
+Coming soon
+The next package in the series. Details will be posted here when it ships.
+Swift
+iOS 17+
+Follow on GitHub ↗
+VALUES
+How I approach the work.
+What twelve years of shipping iOS apps, leading teams, and mentoring engineers has taught me to care about.
+◎
+Users first
+Every feature starts with the person holding the device, whether it's a flight attendant mid-service or a customer paying a bill.
+✦
+Craft matters
+Accessibility, performance, and polish are part of the job, not extras. Small details decide whether people trust an app.
+▦
+Build strong foundations
+Clean architecture, solid tests, and steady modernization keep an app easy to change long after its first release.
+∞
+Collaborate without ego
+The best idea wins, wherever it comes from. Good code reviews teach, and a strong lead helps the whole team grow.
+COMMUNITY
+iOS interview prep, shared in public.
+1M+
+Views on Stack Overflow answers
+// Which line can never print first?
+let queue = DispatchQueue(
+    label: "demo",
+    attributes: .concurrent)
+
+DispatchQueue.main.async {
+    print("A")
+}
+queue.async { print("B") }
+print("C")
+QUESTION BANK
+★ 197
+iOS_Lead_Interview
+Architecture, concurrency, system design, and leadership questions for senior and lead iOS roles.
+Swift
+27 forks
+View on GitHub ↗
+// Struct or class: what prints?
+struct Point { var x = 0 }
+
+var a = Point()
+var b = a
+b.x = 5
+
+print(a.x, b.x)
+// 0 5, value semantics
+QUESTION BANK
+★ 72
+iOS_Junior_Level_Interview_Questions
+Swift, UIKit, and memory management fundamentals for engineers preparing for their first iOS role.
+Swift
+13 forks
+View on GitHub ↗
+Book a session
+iOS Mock Interview
+Video call · 1:1
+Resume Review
+Feedback in 48 hrs
+Career Guidance
+15 min call
+Book now
+Book a session
+iOS Mock Interview
+Video call · 1:1
+Resume Review
+Feedback in 48 hrs
+Career Guidance
+15 min call
+Book now
+MENTORING
+268 sessions
+mock.iOS
+Mock interviews, résumé reviews, and career guidance for iOS engineers in India and the US.
+1:1 video calls
+Topmate verified
+Book on Topmate ↗
+WRITING
+Sharing what I learn, one article at a time.
+1.5K
+Followers on Medium, 40+ articles
+CAREER
+AI Won’t Replace iOS Developers
+Feb 2025
+240 claps
+SWIFT
+Why Are Stored Properties Not Allowed in Enums in Swift?
+Feb 2025
+206 claps
+SWIFT
+@frozen in Swift
+Jan 2025
+188 claps
+SWIFTUI
+Avoid SwiftUI Mistake with ViewModels
+Jul 2025
+146 claps
+ARCHITECTURE
+When to Avoid Using a Singleton in Swift
+Mar 2025
+69 claps
+PUSH NOTIFICATIONS
+iOS Push Notifications: Stop Asking Permission on Day One
+Oct 2025
+58 claps
+Read all articles on Medium ↗
+APPS
+Apps I've built over the years.
+From banking and airline operations to education, these are some of the iOS apps I've designed, built, and shipped since 2014.
+PNC
+PNC Mobile Banking
+Banking · iPhone & iPad
+Real-time bill pay, scheduled payments, and Zelle send and receive flows, with the app moving from UIKit to SwiftUI.
+SwiftUI
+UIKit
+Combine
+async/await
+Clean Swift
+Accessibility
+HIG
+Adobe Analytics
+AppDynamics
+View on the App Store ↗
+✈
+ISA MealOrder
+United Airlines · iPhone & iPad
+Inflight meal and Buy-on-Board sales for flight attendants, with an interactive seat map and a product catalog that lifted onboard sales by 15%.
+Swift
+UIKit
+Couchbase Lite
+Couchbase
+N1QL
+Session-based sync
+AppDynamics
+Artifactory
+AirWatch
+Distributed in-house to United crew
+⇄
+P2P MealOrder
+United Airlines · iPhone & iPad
+Lets flight attendants send and receive data between nearby devices with no internet, using a custom framework over Wi-Fi Direct and Bluetooth.
+Swift
+Wi-Fi Direct
+Bluetooth
+AES
+MongoDB
+Couchbase Lite
+Couchbase Server
+SQLite indexing
+Distributed in-house to United crew
+OUA
+OUA UltraTech
+Enterprise · iOS & Android
+Built the One UltraTech App natively on both iOS and Android, with deep links that open users straight into key screens.
+Swift
+UIKit
+Android
+Java
+XML layouts
+Deep linking
+View on Google Play ↗
+⟳
+Insight
+United Airlines · Gate staff
+A real-time app that shows United gate staff flight changes as they happen. Two-way sync keeps the data and UI up to date across every device.
+Swift
+UIKit
+Couchbase Lite
+Couchbase
+N1QL
+Session-based sync
+Two-way sync
+AppDynamics
+Artifactory
+AirWatch
+Distributed in-house to United staff
+♻
+Veolia
+Waste management · UK
+An iOS app for a UK client that tracks garbage collection and waste management work, with data flowing to and from Salesforce over REST APIs.
+Swift
+UIKit
+Cocoa Touch
+Alamofire
+REST APIs
+Salesforce
+Distributed in-house and through Apple's Volume Purchase Program
+✎
+Fliplearn
+Fliplearn Education · 2015
+A school learning app for students and parents, with a social feed, offline content, and Paytm fee payments that raised completion by 15%.
+Objective-C
+Core Data
+Paytm
+View on the App Store ↗
+←
+1 / 7
+→
+© 2026 Shobhakar Tiwari
+LinkedIn
+Stack Overflow
+Medium
+GitHub
